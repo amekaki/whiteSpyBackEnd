@@ -17,7 +17,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 redis_client = FlaskRedis()
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:eroch123@8.140.180.182:3306/whiteSpy'  # 指定数据库地址、用户名、密码
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:xxx@x.x.x.x:0000/xxxx'  # 指定数据库地址、用户名、密码
 app.config['SQLALCHEMY_TRACK_MODIFICATION'] = False
 app.config['SQLALCHEMY_COMMIT_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
