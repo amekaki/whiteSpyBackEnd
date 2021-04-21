@@ -3,6 +3,8 @@ import asyncio
 from util.telegramUtil import getGroup,sendToUser,getGroupInfo
 telegram=Blueprint("telegram", __name__)
 
+
+
 @telegram.route('/test')
 def ttest():
     asyncio.run(getGroup("+8618956778851"))
