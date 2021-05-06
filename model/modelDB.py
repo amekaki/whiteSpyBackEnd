@@ -24,58 +24,7 @@ class User(db.Model):
             del item["_sa_instance_state"]
         item['headPortrait'] = 'http://localhost:5000/download?filepath=' + item['headPortrait']
         return item
-class Post(db.Model):
-    __tablename__ = 'post'  # 指定对应数据库表post
-    author = db.Column(db.VARCHAR(20))
-    cover = db.Column(db.VARCHAR(100))
-    type = db.Column(db.VARCHAR(20))
-    location=db.Column(db.VARCHAR(20))
-    content=db.Column(db.UnicodeText)
-    postID=db.Column(db.INT,unique=True,primary_key=True)
-    modifiedTime=db.Column(db.DateTime(6))
-    header=db.Column(db.VARCHAR(100))
 
-    def __init__(self,author,content,location,type,cover,postID,modifiedTime,header):
-        self.author=author
-        self.content=content
-        self.location=location
-        self.type=type
-        self.cover=cover
-        self.postID=postID
-        self.modifiedTime=modifiedTime
-        self.header=header
-
-    def __repr__(self):
-        return '<Post %r>' % self.header
-
-    def to_json(self):
-        """将实例对象转化为json"""
-        item = self.__dict__
-        if "_sa_instance_state" in item:
-            del item["_sa_instance_state"]
-        item['modifiedTime']=item['modifiedTime'].strftime("%Y-%m-%d-%H")
-        item['cover']='http://localhost:5000/download?filepath='+item['cover']
-        return item
-
-class starLog(db.Model):
-    __tablename__ = 'starLog'  # 指定对应数据库表post
-    postID=db.Column(db.Integer,primary_key=True)
-    userID=db.Column(db.VARCHAR(20),primary_key=True)
-    starTime=db.Column(db.DateTime(6))
-    def __init__(self,postID,userID,starTime):
-        self.postID=postID
-        self.userID=userID
-        self.starTime=starTime
-    def __repr__(self):
-        return '<starLog %r>' % self.postID
-
-    def to_json(self):
-        """将实例对象转化为json"""
-        item = self.__dict__
-        if "_sa_instance_state" in item:
-            del item["_sa_instance_state"]
-        item['starTime']=item['starTime'].strftime("%Y-%m-%d-%H")
-        return item
 
 
 class telegramGroup(db.Model):
