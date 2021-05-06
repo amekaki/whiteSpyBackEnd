@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="MySQL - whiteSpy@8.140.180.182" uuid="7dd92891-cf47-4c54-ae5b-d70e4e30e394">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://8.140.180.182:3306/whiteSpy</jdbc-url>
+    </data-source>
+  </component>
+</project>

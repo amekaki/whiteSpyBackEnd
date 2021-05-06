@@ -1,3 +1,6 @@
-flask
+flask~=1.1.2
 flask_sqlalchemy
 mysqlclient
+requests~=2.25.1
+werkzeug~=1.0.1
+pyjwt~=2.0.1

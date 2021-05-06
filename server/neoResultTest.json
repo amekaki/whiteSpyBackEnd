@@ -1,0 +1,261 @@
+{
+    "results": [
+        {
+            "columns": [
+                "n1",
+                "p",
+                "n2"
+            ],
+            "data": [
+                {
+                    "graph": {
+                        "nodes": [
+                            {
+                                "id": "0",
+                                "labels": [
+                                    "Person"
+                                ],
+                                "properties": {
+                                    "name": "1150774341",
+                                    "source": "QQ",
+                                    "type": "SIM"
+                                }
+                            },
+                            {
+                                "id": "20",
+                                "labels": [
+                                    "Platform"
+                                ],
+                                "properties": {
+                                    "name": "扫码"
+                                }
+                            }
+                        ],
+                        "relationships": [
+                            {
+                                "id": "100",
+                                "type": "Platform",
+                                "startNode": "0",
+                                "endNode": "20",
+                                "properties": {}
+                            }
+                        ]
+                    }
+                },
+                {
+                    "graph": {
+                        "nodes": [
+                            {
+                                "id": "0",
+                                "labels": [
+                                    "Person"
+                                ],
+                                "properties": {
+                                    "name": "1150774341",
+                                    "source": "QQ",
+                                    "type": "SIM"
+                                }
+                            },
+                            {
+                                "id": "34",
+                                "labels": [
+                                    "Platform"
+                                ],
+                                "properties": {
+                                    "name": "微信"
+                                }
+                            }
+                        ],
+                        "relationships": [
+                            {
+                                "id": "78",
+                                "type": "Platform",
+                                "startNode": "0",
+                                "endNode": "34",
+                                "properties": {}
+                            }
+                        ]
+                    }
+                },
+                {
+                    "graph": {
+                        "nodes": [
+                            {
+                                "id": "0",
+                                "labels": [
+                                    "Person"
+                                ],
+                                "properties": {
+                                    "name": "1150774341",
+                                    "source": "QQ",
+                                    "type": "SIM"
+                                }
+                            },
+                            {
+                                "id": "136",
+                                "labels": [
+                                    "Price"
+                                ],
+                                "properties": {
+                                    "name": "20 一张"
+                                }
+                            }
+                        ],
+                        "relationships": [
+                            {
+                                "id": "46",
+                                "type": "PRICE",
+                                "startNode": "0",
+                                "endNode": "136",
+                                "properties": {
+                                    "name": "None"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "graph": {
+                        "nodes": [
+                            {
+                                "id": "0",
+                                "labels": [
+                                    "Person"
+                                ],
+                                "properties": {
+                                    "name": "1150774341",
+                                    "source": "QQ",
+                                    "type": "SIM"
+                                }
+                            },
+                            {
+                                "id": "101",
+                                "labels": [
+                                    "Company"
+                                ],
+                                "properties": {
+                                    "name": "移动"
+                                }
+                            }
+                        ],
+                        "relationships": [
+                            {
+                                "id": "40",
+                                "type": "COMPANY",
+                                "startNode": "0",
+                                "endNode": "101",
+                                "properties": {}
+                            }
+                        ]
+                    }
+                },
+                {
+                    "graph": {
+                        "nodes": [
+                            {
+                                "id": "0",
+                                "labels": [
+                                    "Person"
+                                ],
+                                "properties": {
+                                    "name": "1150774341",
+                                    "source": "QQ",
+                                    "type": "SIM"
+                                }
+                            },
+                            {
+                                "id": "135",
+                                "labels": [
+                                    "Aim"
+                                ],
+                                "properties": {
+                                    "name": "电销 卡"
+                                }
+                            }
+                        ],
+                        "relationships": [
+                            {
+                                "id": "45",
+                                "type": "AIM",
+                                "startNode": "0",
+                                "endNode": "135",
+                                "properties": {}
+                            }
+                        ]
+                    }
+                },
+                {
+                    "graph": {
+                        "nodes": [
+                            {
+                                "id": "0",
+                                "labels": [
+                                    "Person"
+                                ],
+                                "properties": {
+                                    "name": "1150774341",
+                                    "source": "QQ",
+                                    "type": "SIM"
+                                }
+                            },
+                            {
+                                "id": "110",
+                                "labels": [
+                                    "Aim"
+                                ],
+                                "properties": {
+                                    "name": "流量 卡"
+                                }
+                            }
+                        ],
+                        "relationships": [
+                            {
+                                "id": "18",
+                                "type": "AIM",
+                                "startNode": "0",
+                                "endNode": "110",
+                                "properties": {}
+                            }
+                        ]
+                    }
+                },
+                {
+                    "graph": {
+                        "nodes": [
+                            {
+                                "id": "0",
+                                "labels": [
+                                    "Person"
+                                ],
+                                "properties": {
+                                    "name": "1150774341",
+                                    "source": "QQ",
+                                    "type": "SIM"
+                                }
+                            },
+                            {
+                                "id": "86",
+                                "labels": [
+                                    "Platform"
+                                ],
+                                "properties": {
+                                    "name": "支付宝"
+                                }
+                            }
+                        ],
+                        "relationships": [
+                            {
+                                "id": "0",
+                                "type": "Platform",
+                                "startNode": "0",
+                                "endNode": "86",
+                                "properties": {}
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "errors": []
+}
