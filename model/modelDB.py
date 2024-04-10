@@ -85,7 +85,54 @@ class telegramUser(db.Model):
             del item["_sa_instance_state"]
         item['photo'] = 'http://localhost:5000/download?filepath=' + item['photo']
         return item
+class qqbot(db.Model):
+    __table_name__='qqbot'
+    __table_args__ = {'mysql_engine': 'InnoDB', 'mysql_charset': 'utf8mb4'}
+    id = db.Column(db.VARCHAR(20), primary_key=True)
+    photo = db.Column(db.VARCHAR(255))
+    username = db.Column(db.VARCHAR(255))
 
+    def __init__(self, id, photo, username):
+        self.id = id
+        self.photo = photo
+        self.username = username
+
+    def __repr__(self):
+        return "<QQBot %r>" % self.id
+
+    def to_json(self):
+        item = self.__dict__
+        if "_sa_instance_state" in item:
+            del item["_sa_instance_state"]
+        item['photo'] = 'http://localhost:5000/download?filepath=' + item['photo']
+        return item
+class telegrambot(db.Model):
+    __table_name__='telegrambot'
+    __table_args__ = {'mysql_engine': 'InnoDB', 'mysql_charset': 'utf8mb4'}
+    id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.VARCHAR(255))
+    last_name = db.Column(db.VARCHAR(255))
+    photo = db.Column(db.VARCHAR(255))
+    username = db.Column(db.VARCHAR(255))
+    phone = db.Column(db.VARCHAR(255))
+
+    def __init__(self, id, first_name, last_name, photo, username, phone):
+        self.id = id
+        self.first_name = first_name
+        self.last_name = last_name
+        self.photo = photo
+        self.username = username
+        self.phone = phone
+
+    def __repr__(self):
+        return "<telegramBot %r>" % self.id
+
+    def to_json(self):
+        item = self.__dict__
+        if "_sa_instance_state" in item:
+            del item["_sa_instance_state"]
+        item['photo'] = 'http://localhost:5000/download?filepath=' + item['photo']
+        return item
 class Message(db.Model):
     __table_name__='message'
     msgId = db.Column(db.Integer, primary_key=True)
@@ -111,4 +158,31 @@ class Message(db.Model):
             del item["_sa_instance_state"]
         item['createTime'] = item['createTime'].strftime("%Y-%m-%d-%H")
         return item
+class Chattask(db.Model):
+    __table_name__='chattask'
+    taskID = db.Column(db.VARCHAR(20), primary_key=True)
+    userId=db.Column(db.Integer)
+    source= db.Column(db.VARCHAR(255))
+    platform = db.Column(db.VARCHAR(255))
+    accomplish = db.Column(db.VARCHAR(255))
+    startTime = db.Column(db.DateTime(6))
+    endTime = db.Column(db.DateTime(6))
 
+    def __init__(self,taskID,userId,source,platform,accomplish,startTime,endTime):
+        self.taskID=taskID
+        self.userId=userId
+        self.source=source
+        self.platform=platform
+        self.accomplish=accomplish
+        self.startTime=startTime
+        self.endTime=endTime
+    def __repr__(self):
+        return "<ChatTask %r>" % self.taskID
+
+    def to_json(self):
+        item=self.__dict__
+        if "_sa_instance_state" in item:
+            del item["_sa_instance_state"]
+        item['startTime'] = item['startTime'].strftime("%Y-%m-%d-%H")
+        item['endTime'] = item['endTime'].strftime("%Y-%m-%d-%H")
+        return item

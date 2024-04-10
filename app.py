@@ -3,7 +3,7 @@ import os
 
 from flask import Flask
 from flask import send_from_directory, request
-from flask_redis import FlaskRedis
+# from flask_redis import FlaskRedis
 import time
 
 from werkzeug.utils import secure_filename
@@ -18,15 +18,16 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-redis_client = FlaskRedis()
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:eroch123@8.140.180.182:3306/whiteSpy?charset=utf8mb4'  # 指定数据库地址、用户名、密码
+# redis_client = FlaskRedis()
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:eroch123@112.126.102.75:3306/whiteSpy?charset=utf8mb4'  # 指定数据库地址、用户名、密码
 app.config['SQLALCHEMY_TRACK_MODIFICATION'] = False
 app.config['SQLALCHEMY_COMMIT_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 3000
+app.config['SQLALCHEMY_POOL_RECYCLE'] =-1
+app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {'pool_pre_ping': True}
 app.config['REDIS_URL'] = "redis://:eroch123@192.168.197.145:6379/0"
 db.init_app(app)
-redis_client.init_app(app)
+# redis_client.init_app(app)
 app.register_blueprint(auth, url_prefix='/auth')
 app.register_blueprint(user, url_prefix='/user')
 app.register_blueprint(telegram, url_prefix='/telegram')
@@ -34,30 +35,10 @@ app.register_blueprint(show, url_prefix='/show')
 app.register_blueprint(msg, url_prefix='/msg')
 
 
-def mark_dyn_data(id, data):
-    user_id = str(id)
-    data = str(data)
-    expires = int(time.time()) + 60
-    data_key = "dyn_data/%s" % user_id
-    p = redis_client.pipeline()
-    p.set(data_key, data)
-    p.expireat(data_key, expires)
-    p.execute()
-
-
-def get_dyn_data(id):
-    user_id = str(id)
-    data_key = "dyn_data/%s" % user_id
-    data = redis_client.get(data_key).decode('utf-8')
-
-    if data:
-        return data
-    return None
-
 
 @app.route('/')
 def hello_world():
-    redis_client.set('potato', "value")
+    # redis_client.set('potato', "value")
     userId = '123'
     userData = {'key1': 'value1', 'key2': "value2"}
     mark_dyn_data(userId, userData)
